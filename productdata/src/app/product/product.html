@@ -1,0 +1,23 @@
+<p>product works!</p>
+
+<h2>Products</h2>
+<p>{{ products.length }}</p>
+<p *ngIf="errorMessage" style="color: red">
+  {{ errorMessage }}
+</p>
+<button (click)="addProduct()">Add Product</button>
+<div *ngFor="let product of products; let i = index">
+  <h3>{{ product.title }}</h3>
+
+  <p>
+    <b>Description:</b>
+    {{ product.description }}
+  </p>
+
+  <p>
+    <b>Category:</b>
+    {{ product.category }}
+  </p>
+
+  <hr />
+</div>

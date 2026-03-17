@@ -1,0 +1,17 @@
+<p>bookingflight works!</p>
+
+<div>
+  <label>Flight Type:</label>
+  <select [(ngModel)]="flightType">
+    <option value="oneway">One-way flight</option>
+    <option value="return">Return flight</option>
+  </select>
+
+  <label>Departure Date:</label>
+  <input type="date" />
+
+  <div *ngIf="flightType === 'return'">
+  <label>Return Date:</label>
+  <input type="date" [(ngModel)]="returnDate">
+</div>
+</div>
