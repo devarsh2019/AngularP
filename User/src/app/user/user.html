@@ -1,0 +1,43 @@
+<p>user works!</p>
+<div class="maincontainer">
+  <div>
+    <label>Search Names: </label>
+    <input
+      type="text"
+      [(ngModel)]="searchName"
+      (input)="searchByName()"
+      placeholder="Search by name"
+    />
+  </div>
+</div>
+<h2>All Users</h2>
+<div *ngFor="let user of searchUser" class="user-card">
+  <h3>{{ user.name }}</h3>
+  <p><b>Username:</b> {{ user.username }}</p>
+  <p><b>Email:</b> {{ user.email }}</p>
+  <p><b>Phone:</b> {{ user.phone }}</p>
+  <p><b>Website:</b> {{ user.website }}</p>
+  <p>
+    <b>Address:</b>
+    {{ user.address.street }}, {{ user.address.suite }},
+    {{ user.address.city }} - {{ user.address.zipCode }}
+  </p>
+  <p><b>Company:</b> {{ user.company.name }}</p>
+  <button (click)="addFavorite(user)">
+    {{ isFavorite(user.id) ? 'Remove Favorite' : 'Add Favorite' }}
+  </button>
+</div>
+<h2>Favourite Users</h2>
+<div *ngFor="let user of favoriteUsers" class="user-card">
+  <h3>{{ user.name }}</h3>
+  <p><b>Username:</b> {{ user.username }}</p>
+  <p><b>Email:</b> {{ user.email }}</p>
+  <p><b>Phone:</b> {{ user.phone }}</p>
+  <p><b>Website:</b> {{ user.website }}</p>
+  <p>
+    <b>Address:</b>
+    {{ user.address.street }}, {{ user.address.suite }},
+    {{ user.address.city }} - {{ user.address.zipCode }}
+  </p>
+  <p><b>Company:</b> {{ user.company.name }}</p>
+</div>
