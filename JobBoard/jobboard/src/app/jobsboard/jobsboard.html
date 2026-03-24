@@ -1,0 +1,19 @@
+<div class="jobs-container">
+  <div *ngFor="let job of jobs" class="job-card">
+    <h3>
+      <a *ngIf="job.url; else noLink" [href]="job.url" target="_blank">
+        {{ job.title }}
+      </a>
+      <ng-template #noLink>
+         <p>Loading...</p>
+      </ng-template>
+    </h3>
+
+    <p>By {{ job.by }}</p>
+    <p>{{ job.time | date:'medium' }}</p>
+  </div>
+
+  <button *ngIf="currentIndex < jobIds.length" (click)="loadMoreJobs()">
+    Load More Jobs
+  </button>
+</div>
