@@ -1,0 +1,13 @@
+<div class="tab-buttons">
+  <button
+    *ngFor="let tab of visibleTabs"
+    [class.btn]="!tab.active"
+    [class.btn-active]="tab.active"
+    [disabled]="tab.active"
+    (click)="selectTab(tab)"
+  >
+    {{ tab.title }}
+  </button>
+</div>
+
+<ng-content></ng-content>
